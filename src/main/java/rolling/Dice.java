@@ -4,13 +4,6 @@ public class Dice {
     private static int amountOfSide;
     private static int amountOfThrows;
 
-
-    public static Dice createDice(String[] splitedInputCommand) {
-        Dice dice = new Dice();
-
-        return dice;
-    }
-
     public static int getAmountOfSide() {
         return amountOfSide;
     }
