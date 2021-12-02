@@ -20,7 +20,7 @@ class StackTest<T> {
 
         Stack<String> stack = new Stack<>(5);
         stack.push("5");
-         stack.push("6");
+        stack.push("6");
         String element = stack.push("8");
         assertEquals("8", element);
     }
@@ -97,9 +97,5 @@ class StackTest<T> {
         String element = stack.top();
         assertNull(element);
     }
-
-
-
-
 
 }

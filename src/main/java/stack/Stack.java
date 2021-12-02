@@ -15,49 +15,47 @@ public class Stack<T> {
         stackArray = new ArrayList<T>(size);
     }
 
-    public T push(T element){
+    public T push(T element) {
 
-        if(top+1 == size){
+        if (top + 1 == size) {
             System.out.println("StackOverflowError");
-        }
-        else top = top + 1;
+        } else top = top + 1;
 
 
         if (top < stackArray.size())
-            stackArray.set(top,element);
+            stackArray.set(top, element);
         else
-        stackArray.add(element);
+            stackArray.add(element);
         return element;
     }
 
 
-    public T pop(){
+    public T pop() {
 
-        if(top == -1){
+        if (top == -1) {
             System.out.println("StackOverflowError");
             return null;
-        }
-        else {
+        } else {
             T removedElem = stackArray.get(top);
             top--;
             return removedElem;
         }
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
 
         return (top == -1);
     }
 
 
-    public T top(){
+    public T top() {
 
-        if(top == -1){
+        if (top == -1) {
 
             System.out.println("StackOverflowError");
             return null;
-        }else
-        return stackArray.get(top);
+        } else
+            return stackArray.get(top);
     }
 
 }
