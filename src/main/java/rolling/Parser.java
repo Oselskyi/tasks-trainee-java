@@ -2,6 +2,7 @@ package rolling;
 
 import exceptions.IncorrectCommandException;
 import exceptions.IncorrectInputException;
+import exceptions.NothingEnteredException;
 
 
 public class Parser {
@@ -9,6 +10,7 @@ public class Parser {
 
     public static String[] parse(String input) throws RuntimeException {
 
+        if (input.equals("")) throw new NothingEnteredException("You didn't write anything! ");
         if (input.equals("roll")) throw new IncorrectCommandException("You need to enter your command with / ");
         if (input.equals("/roll")) throw new IncorrectInputException("You need to enter correct command ");
 

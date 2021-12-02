@@ -1,8 +1,5 @@
 package rolling;
 
-
-import java.util.Scanner;
-
 public class Game {
     public static void main(String[] args) {
 
@@ -11,7 +8,7 @@ public class Game {
 
         vadim.play();
         bohdan.play();
-
+        System.out.println(Roller.roll("/roll 12d6"));
     }
 
 

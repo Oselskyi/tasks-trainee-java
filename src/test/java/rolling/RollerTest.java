@@ -7,10 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class RollerTest {
 
     @Test
-    void rolld20() {
-
-        Roller.roll("/roll d20");
-        assertTrue(Dice.getAmountOfSide() > 0 && Dice.getAmountOfSide() <= 20);
+    void roll2d20() {
+        int result = 0;
+        int[] array = Roller.roll("/roll 2d20");
+        for (int i = 0; i < array.length; i++) {
+            int i1 = array[i];
+             result = i1 + array[i];
+        }
+        assertTrue(result > 1 && result <= 40);
     }
 
     @Test
@@ -19,13 +23,6 @@ class RollerTest {
         Roller.roll("/roll 5d17");
         assertTrue(Dice.getAmountOfSide() <= 17);
 
-    }
-
-    @Test
-    void roll5d17() {
-
-        Roller.roll("/roll 5d17");
-        assertEquals(5, Roller.getDiceRolls().length);
     }
 
     @Test
@@ -42,12 +39,7 @@ class RollerTest {
         assertFalse(Dice.getAmountOfSide() > 170);
     }
 
-    @Test
-    void roll100d170Length() {
 
-        Roller.roll("/roll 100d170");
-        assertEquals(100, Roller.getDiceRolls().length);
-    }
 
     @Test
     void roll100d170() {

@@ -53,4 +53,9 @@ class ParserTest {
 
         assertThrows(IncorrectCommandException.class, () -> Parser.parse("roll"));
     }
+    @Test
+    public void testNothingEntered() {
+
+        assertThrows(IncorrectCommandException.class, () -> Parser.parse("roll"));
+    }
 }
