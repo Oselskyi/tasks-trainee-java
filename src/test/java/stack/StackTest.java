@@ -1,81 +1,105 @@
 package stack;
 
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class StackTest {
-    public static Stack stack;
+class StackTest<T> {
 
-    @BeforeEach
-    void setUp(){stack = new Stack(7);}
 
     @Test
-    void addElement() {
-        boolean isAdded = stack.addElement(5);
-        assertTrue(isAdded);
+    void pushIntegerTest() {
+
+        Stack<Integer> stack = new Stack<>(5);
+        int element = stack.push(5);
+        assertEquals(5, element);
     }
 
     @Test
-    void deleteElement() {
-        stack.addElement(5);
-        stack.addElement(7);
-        int deletedElement = stack.deleteElement();
+    void pushStringTest() {
+
+        Stack<String> stack = new Stack<>(5);
+        stack.push("5");
+         stack.push("6");
+        String element = stack.push("8");
+        assertEquals("8", element);
+    }
+
+
+    @Test
+    void popInegerTest() {
+
+        Stack<Integer> stack = new Stack<>(5);
+        stack.push(5);
+        stack.push(7);
+        int deletedElement = stack.pop();
         assertEquals(7, deletedElement);
     }
 
     @Test
+    void popStringTest() {
+
+        Stack<String> stack = new Stack<>(5);
+        stack.push("5");
+        stack.push("7");
+        String deletedElement = stack.pop();
+        assertEquals("7", deletedElement);
+    }
+
+    @Test
+    void popErrorTest() {
+
+        Stack<String> stack = new Stack<>(5);
+        String deletedElement = stack.pop();
+        assertNull(deletedElement);
+    }
+
+    @Test
     void isEmpty() {
+
+        Stack<Integer> stack = new Stack<>(5);
         assertTrue(stack.isEmpty());
     }
+
     @Test
     void isNotEmpty() {
 
-        stack.addElement(5);
+        Stack<Integer> stack = new Stack<>(5);
+        stack.push(5);
         assertFalse(stack.isEmpty());
     }
 
     @Test
-    void getElement() {
-        stack.addElement(5);
-        stack.addElement(7);
-        int element = stack.getElement();
+    void topIntegerTest() {
+
+        Stack<Integer> stack = new Stack<>(5);
+        stack.push(5);
+        stack.push(7);
+        int element = stack.top();
         assertEquals(7, element);
     }
 
     @Test
-    void isFull() {
+    void topStringTest() {
 
-        stack.addElement(7);
-        stack.addElement(7);
-        stack.addElement(7);
-        stack.addElement(7);
-        stack.addElement(7);
-        stack.addElement(7);
-        stack.addElement(7);
-
-        assertTrue(stack.isFull());
-    }
-  @Test
-    void isNotFull() {
-
-      stack.addElement(7);
-      stack.addElement(7);
-      stack.addElement(7);
-      stack.addElement(7);
-
-      assertFalse(stack.isFull());
+        Stack<String> stack = new Stack<>(5);
+        stack.push("5");
+        stack.push("7");
+        String element = stack.top();
+        assertEquals("7", element);
     }
 
     @Test
-    void show() {
+    void topErrorTest() {
 
-        String array = "[1, 2, 3, 0, 0, 0, 0]";
-        stack.addElement(1);
-        stack.addElement(2);
-        stack.addElement(3);
-        String myArray = stack.show();
-        assertEquals(array, myArray);
+        Stack<String> stack = new Stack<>(5);
+
+        String element = stack.top();
+        assertNull(element);
     }
+
+
+
+
+
 }

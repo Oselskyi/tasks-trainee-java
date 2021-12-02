@@ -1,31 +1,47 @@
 package stack;
 
-import java.util.Arrays;
-public class Stack {
+import java.util.ArrayList;
 
-    private int maxSize;
-    private int [] stackArray;
-    private int top;
+public class Stack<T> {
 
-    public Stack(int maxSize) {
-        this.maxSize = maxSize;
-        stackArray = new int[maxSize];
-        top =-1;
+    private int size;
+
+    private int top = -1;
+    ArrayList<T> stackArray;
+
+    public Stack(int size) {
+
+        this.size = size;
+        stackArray = new ArrayList<T>(size);
     }
 
-    public boolean addElement(int element){
+    public T push(T element){
 
-        stackArray[++top] = element;
-        if (top > stackArray.length-1){
-            return false;
+        if(top+1 == size){
+            System.out.println("StackOverflowError");
         }
-        return true;
+        else top = top + 1;
+
+
+        if (top < stackArray.size())
+            stackArray.set(top,element);
+        else
+        stackArray.add(element);
+        return element;
     }
 
-    public int deleteElement(){
-        int removedElem = stackArray[top];
-        stackArray[top--] = 0;
-        return removedElem;
+
+    public T pop(){
+
+        if(top == -1){
+            System.out.println("StackOverflowError");
+            return null;
+        }
+        else {
+            T removedElem = stackArray.get(top);
+            top--;
+            return removedElem;
+        }
     }
 
     public boolean isEmpty(){
@@ -33,18 +49,15 @@ public class Stack {
         return (top == -1);
     }
 
-    public int getElement(){
 
-        return stackArray[top];
+    public T top(){
+
+        if(top == -1){
+
+            System.out.println("StackOverflowError");
+            return null;
+        }else
+        return stackArray.get(top);
     }
 
-    public boolean isFull(){
-
-        return (top == maxSize - 1);
-    }
-
-    public String show(){
-
-        return Arrays.toString(stackArray);
-    }
 }
