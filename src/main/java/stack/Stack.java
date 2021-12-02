@@ -18,7 +18,7 @@ public class Stack<T> {
     public T push(T element) {
 
         if (top + 1 == size) {
-            System.out.println("StackOverflowError");
+
         } else top = top + 1;
 
 
@@ -33,7 +33,7 @@ public class Stack<T> {
     public T pop() {
 
         if (top == -1) {
-            System.out.println("StackOverflowError");
+
             return null;
         } else {
             T removedElem = stackArray.get(top);
@@ -52,7 +52,7 @@ public class Stack<T> {
 
         if (top == -1) {
 
-            System.out.println("StackOverflowError");
+
             return null;
         } else
             return stackArray.get(top);
